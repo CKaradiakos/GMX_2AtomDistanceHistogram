@@ -1,0 +1,11 @@
+#Run by: "awk -f [this file's name] [input file name] > [outputfile name]
+#Check if $2 (distance) or y value in distance xvg's are above the cut-off for being considered bonded
+{if (NR < 18)
+	print $0
+}
+{if (NR >= 18) 
+	if ($2 > 0.35) #for RNA bonds 0.35, for miR-A contacts, 0.48
+		print $1, "0"
+	else
+		print $1, "1"
+}

@@ -1,0 +1,7 @@
+#NOTE: run "paste [file 1] [file2] > [file3] and then awk -f [this file] [file3] > [file4] and then use file4 as the new file 2 until done
+{if (NR < 18)
+        print $0
+}
+{if (NR >= 18)
+        print $1, $2+$4
+}
